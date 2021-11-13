@@ -11,7 +11,11 @@ export default (): TypeOrmModuleOptions => {
     synchronize: 'DB_SYNCHRONIZE',
   };
 
-  return Object.keys(dbVariables).reduce((current, key) => {
+  const environmentValues = Object.keys(dbVariables).reduce((current, key) => {
     return { ...current, [key]: process.env[dbVariables[key]] };
   }, {});
+
+  const entities = ['dist/**/*.entity{.ts,.js}'];
+
+  return { ...environmentValues, entities };
 };
