@@ -1,3 +1,7 @@
+# Instrucões para rodar o projeto
+Dentro das pastas **api** e **static_page** contêm um README com as intrucões de cada projeto.
+
+
 # Desafio programação - para vaga desenvolvedor
 
 Por favor leiam este documento do começo ao fim, com muita atenção.
