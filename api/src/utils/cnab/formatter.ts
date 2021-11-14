@@ -1,4 +1,4 @@
-import TransactionType from 'src/enums/transaction.enum';
+import TransactionType from '../../enums/transaction.enum';
 
 export default (registration) => {
   const formattersKeys = Object.keys(formatters);

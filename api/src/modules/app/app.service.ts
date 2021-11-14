@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Store } from 'src/entities/store.entity';
+import { Store } from '../../entities/store.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -20,6 +20,8 @@ export class AppService {
     const store = await this.storeRepo.findOne(storeId, {
       relations: ['transactions'],
     });
+
+    if (!store) return [];
 
     return store.transactions;
   }

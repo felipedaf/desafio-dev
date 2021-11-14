@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Store } from 'src/entities/store.entity';
-import { Transaction } from 'src/entities/transaction.entity';
-import TransactionType from 'src/enums/transaction.enum';
-import builder from 'src/utils/cnab/builder';
+import { Store } from '../../entities/store.entity';
+import { Transaction } from '../../entities/transaction.entity';
+import TransactionType from '../../enums/transaction.enum';
+import builder from '../../utils/cnab/builder';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -65,7 +65,7 @@ export class CnabService {
       await this.storeRepo.save(store);
     }
 
-    this.transactionRepo.save(insertableTransactions);
+    await this.transactionRepo.save(insertableTransactions);
 
     return { message: 'Upload successfully done!' };
   }
