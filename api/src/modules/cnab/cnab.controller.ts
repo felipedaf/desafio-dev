@@ -1,5 +1,7 @@
 import {
   Controller,
+  HttpCode,
+  HttpStatus,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -13,6 +15,7 @@ export class CnabController {
 
   @Post()
   @UseInterceptors(FileInterceptor('file'))
+  @HttpCode(HttpStatus.ACCEPTED)
   upload(@UploadedFile() file: Express.Multer.File) {
     return this.cnabService.upload(file);
   }

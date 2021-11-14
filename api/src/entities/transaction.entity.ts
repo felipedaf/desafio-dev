@@ -19,9 +19,9 @@ export class Transaction {
   @Column({ type: 'double' })
   value: number;
 
-  @Column({ type: 'int', width: 11 })
+  @Column({ type: 'varchar' })
   cpf: string;
 
-  @Column({ type: 'int', width: 12 })
+  @Column({ type: 'varchar', length: 12 })
   creditCard: string;
 }
